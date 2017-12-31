@@ -14,3 +14,6 @@ jobs:
       - run: mix deps.get
       - run: mix ecto.create
       - run: mix test
+    test:
+      override:
+        - mix coveralls.circle
