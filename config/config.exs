@@ -17,6 +17,11 @@ config :come_bike, ComeBikeWeb.Endpoint,
   pubsub: [name: ComeBike.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+# Phauxth authentication configuration
+config :phauxth,
+  token_salt: "r57L3VQa",
+  endpoint: ComeBikeWeb.Endpoint
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
