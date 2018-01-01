@@ -1,0 +1,32 @@
+  <div class="row">
+    <div class="col-lg-12">
+
+      <%= if get_flash(@conn, :success) do %>
+        <div class="alert alert-success" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <%= get_flash(@conn, :success) %>
+        </div>
+      <% end %>
+
+      <%= if get_flash(@conn, :info) do %>
+      <div class="alert alert-primary" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+				<strong>Info:</strong> <%= get_flash(@conn, :info) %>
+			</div>
+      <% end %>
+
+      <%= if get_flash(@conn, :error) do %>
+      <div class="alert alert-danager" role="alert">
+      	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      		<span aria-hidden="true">×</span>
+      	</button>
+      	<strong>Error:</strong> <%= get_flash(@conn, :error) %>
+      </div>
+      <% end %>
+
+    </div>
+  </div>

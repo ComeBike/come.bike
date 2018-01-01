@@ -10,39 +10,27 @@
     <title><%= assigns[:page_title] || "Come Bike" %></title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/vendors.css") %>">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
-    <%= render_existing @view_module, "styles." <> @view_template, assigns %>
+    <%#= render_existing @view_module, "styles." <> @view_template, assigns %>
   </head>
 
-  <body>
-    <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="<%= page_path @conn, :index %>">Home</a></li>
-              <%= if @current_user do %>
-              <li><a href="<%= user_path @conn, :index %>">Users</a></li>
-              <li><a href="<%= user_path(@conn, :show, @current_user.id) %>"><%= @current_user.email %></a></li>
-              <li><%= link "Logout", to: session_path(@conn, :delete, @current_user), method: :delete %></li>
-              <% else %>
-              <li><a href="<%= user_path @conn, :new %>">New user</a></li>
-              <li><a href="<%= session_path @conn, :new %>">Login</a></li>
-              <% end %>
-          </ul>
-        </nav>
-        <span class="logo"></span>
-      </header>
+    <body>
 
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <%= render "header.html", conn: @conn, current_user: @current_user %>
 
-      <main role="main">
-        <%= render @view_module, @view_template, assigns %>
-      </main>
+      <div class="container">
 
-    </div> <!-- /container -->
+        <%= render "flash.html", conn: @conn %>
+
+        <main role="main">
+          <%= render @view_module, @view_template, assigns %>
+        </main>
+      </div>
+
+    <%= render "footer.html", conn: @conn, current_user: @current_user %>
+
     <script src="<%= static_path(@conn, "/js/manifest.js") %>"></script>
     <script src="<%= static_path(@conn, "/js/vendors.js") %>"></script>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
-    <%= render_existing @view_module, "scripts." <> @view_template, assigns %>
+    <%#= render_existing @view_module, "scripts." <> @view_template, assigns %>
   </body>
 </html>

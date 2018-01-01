@@ -21,9 +21,6 @@ defmodule ComeBike.Accounts.User do
   end
 
   def create_facebook_changeset(%User{} = user, attrs) do
-    # require IEx
-    # IEx.pry()
-
     user
     |> cast(%{facebook_uid: attrs["id"], email: attrs["email"]}, [:email, :facebook_uid])
     |> validate_required([:email, :facebook_uid])

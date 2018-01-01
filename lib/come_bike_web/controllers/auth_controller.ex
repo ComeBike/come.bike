@@ -21,10 +21,6 @@ defmodule ComeBikeWeb.AuthController do
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
     case auth.provider do
       :facebook ->
-        # auth.extra.raw_info.user["email"]
-        # auth.extra.raw_info.user["name"]
-        # auth.extra.raw_info.user["id"]
-
         case Accounts.find_or_create_facebook_user(auth.extra.raw_info.user) do
           {:ok, user} ->
             session_id = Login.gen_session_id("F")
