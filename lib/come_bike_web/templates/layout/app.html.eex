@@ -7,8 +7,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Welcome to Phauxth - an extensible authentication library for Elixir web apps</title>
+    <title><%= assigns[:page_title] || "Come Bike" %></title>
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/vendors.css") %>">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <%= render_existing @view_module, "styles." <> @view_template, assigns %>
   </head>
 
   <body>
@@ -38,6 +40,9 @@
       </main>
 
     </div> <!-- /container -->
+    <script src="<%= static_path(@conn, "/js/manifest.js") %>"></script>
+    <script src="<%= static_path(@conn, "/js/vendors.js") %>"></script>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <%= render_existing @view_module, "scripts." <> @view_template, assigns %>
   </body>
 </html>
