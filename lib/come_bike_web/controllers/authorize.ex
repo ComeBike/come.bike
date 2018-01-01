@@ -1,5 +1,4 @@
 defmodule ComeBikeWeb.Authorize do
-
   import Plug.Conn
   import Phoenix.Controller
   import ComeBikeWeb.Router.Helpers

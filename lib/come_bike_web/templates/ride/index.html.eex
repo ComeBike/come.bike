@@ -1,0 +1,40 @@
+<h2>Listing Rides</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Start time</th>
+      <th>Start location name</th>
+      <th>Start address</th>
+      <th>Start city</th>
+      <th>Start state</th>
+      <th>Start zip</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for ride <- @rides do %>
+    <tr>
+      <td><%= ride.title %></td>
+      <td><%= ride.description %></td>
+      <td><%= ride.start_time %></td>
+      <td><%= ride.start_location_name %></td>
+      <td><%= ride.start_address %></td>
+      <td><%= ride.start_city %></td>
+      <td><%= ride.start_state %></td>
+      <td><%= ride.start_zip %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: ride_path(@conn, :show, ride), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: ride_path(@conn, :edit, ride), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: ride_path(@conn, :delete, ride), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Ride", to: ride_path(@conn, :new) %></span>

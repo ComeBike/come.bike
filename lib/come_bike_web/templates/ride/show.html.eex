@@ -1,0 +1,48 @@
+<h2>Show Ride</h2>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @ride.title %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @ride.description %>
+  </li>
+
+  <li>
+    <strong>Start time:</strong>
+    <%= @ride.start_time %>
+  </li>
+
+  <li>
+    <strong>Start location name:</strong>
+    <%= @ride.start_location_name %>
+  </li>
+
+  <li>
+    <strong>Start address:</strong>
+    <%= @ride.start_address %>
+  </li>
+
+  <li>
+    <strong>Start city:</strong>
+    <%= @ride.start_city %>
+  </li>
+
+  <li>
+    <strong>Start state:</strong>
+    <%= @ride.start_state %>
+  </li>
+
+  <li>
+    <strong>Start zip:</strong>
+    <%= @ride.start_zip %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: ride_path(@conn, :edit, @ride) %></span>
+<span><%= link "Back", to: ride_path(@conn, :index) %></span>

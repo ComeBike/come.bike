@@ -1,0 +1,59 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :title, class: "control-label" %>
+    <%= text_input f, :title, class: "form-control" %>
+    <%= error_tag f, :title %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :description, class: "control-label" %>
+    <%= textarea f, :description, class: "form-control" %>
+    <%= error_tag f, :description %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :start_time, class: "control-label" %>
+    <%= datetime_select f, :start_time, class: "form-control" %>
+    <%= error_tag f, :start_time %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :start_location_name, class: "control-label" %>
+    <%= text_input f, :start_location_name, class: "form-control" %>
+    <%= error_tag f, :start_location_name %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :start_address, class: "control-label" %>
+    <%= text_input f, :start_address, class: "form-control" %>
+    <%= error_tag f, :start_address %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :start_city, class: "control-label" %>
+    <%= text_input f, :start_city, class: "form-control" %>
+    <%= error_tag f, :start_city %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :start_state, class: "control-label" %>
+    <%= text_input f, :start_state, class: "form-control" %>
+    <%= error_tag f, :start_state %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :start_zip, class: "control-label" %>
+    <%= text_input f, :start_zip, class: "form-control" %>
+    <%= error_tag f, :start_zip %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
