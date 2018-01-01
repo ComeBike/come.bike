@@ -8,6 +8,7 @@
     <meta name="author" content="">
 
     <title><%= assigns[:page_title] || "Come Bike" %></title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/vendors.css") %>">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
     <%#= render_existing @view_module, "styles." <> @view_template, assigns %>
