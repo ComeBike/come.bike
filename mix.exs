@@ -27,7 +27,7 @@ defmodule ComeBike.Mixfile do
   def application do
     [
       mod: {ComeBike.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :ueberauth]
     ]
   end
 
@@ -49,7 +49,8 @@ defmodule ComeBike.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:excoveralls, "~> 0.8.0", only: :test},
-      {:guardian, "~> 1.0"},
+      {:phauxth, "~> 1.2"},
+      {:argon2_elixir, "~> 1.2"},
       {:ueberauth, github: "ueberauth/ueberauth", override: true},
       {:ueberauth_facebook, "~> 0.7.0"}
     ]

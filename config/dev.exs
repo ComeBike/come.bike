@@ -55,3 +55,7 @@ config :come_bike, ComeBike.Repo,
   database: "come_bike_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :ueberauth, Ueberauth.Strategy.Facebook.OAuth,
+  client_id: System.get_env("COME_BIKE_FACEBOOK_CLIENT_ID"),
+  client_secret: System.get_env("COME_BIKE_FACEBOOK_CLIENT_SECRET")

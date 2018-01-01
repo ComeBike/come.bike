@@ -17,3 +17,8 @@ config :come_bike, ComeBike.Repo,
   database: "come_bike_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+# Comeonin password hashing test config
+config :argon2_elixir,
+  t_cost: 2,
+  m_cost: 8

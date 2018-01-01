@@ -15,6 +15,11 @@ config :come_bike, ComeBikeWeb.Endpoint,
   render_errors: [view: ComeBikeWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: ComeBike.PubSub, adapter: Phoenix.PubSub.PG2]
 
+# Phauxth authentication configuration
+config :phauxth,
+  token_salt: "WphQ7Zjo",
+  endpoint: ComeBikeWeb.Endpoint
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
@@ -23,12 +28,16 @@ config :logger, :console,
 # Configures Ueberauth for OAuth stuff
 config :ueberauth, Ueberauth,
   providers: [
-    facebook: {Ueberauth.Strategy.Facebook, []}
+    facebook:
+      {Ueberauth.Strategy.Facebook, [
+        default_scope: "email",
+        display: "popup"
+      ]}
   ]
 
 config :ueberauth, Ueberauth.Strategy.Facebook.OAuth,
-  client_id: System.get_env("FACEBOOK_CLIENT_ID"),
-  client_secret: System.get_env("FACEBOOK_CLIENT_SECRET")
+  client_id: "${COME_BIKE_FACEBOOK_CLIENT_ID}",
+  client_secret: "${COME_BIKE_FACEBOOK_CLIENT_SECRET}"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
