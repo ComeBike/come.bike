@@ -6,9 +6,12 @@ BUILD_HOST="come.bike"
 BUILD_USER="deploy"
 BUILD_AT="/tmp/edeliver/come_bike/builds"
 
-PRODUCTION_HOST="come.bike"
+PRODUCTION_HOSTS="come.bike"
 PRODUCTION_USER="deploy"
 DELIVER_TO="/home/deploy"
+
+STAGING_HOSTS="come.bike"
+STAGING_USER="deploy"
 
 pre_erlang_clean_compile() {
   status "Preparing assets with: Webpack and phoenix.digest"
