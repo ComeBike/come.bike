@@ -8,14 +8,13 @@
   <% end %>
 </div>
 
-<hr>
 <section id="services" class="section">
    <div class="container">
       <div class="section-header">
-         <h2>Come Join Our Open <span>Comunity</span></h2>
-         <hr>
-         <p>Come Bike is an event calendar and ride tracker for the peole by the peopele.</p>
+         <h2 class="text-center">Come Join Our Open <span>Comunity</span></h2>
+         <p class="text-center">Come Bike is an event calendar and ride tracker for the peole by the peopele.</p>
       </div>
+      <hr>
       <div class="row">
          <div class="col-md-4 col-sm-6">
             <div class="" >
