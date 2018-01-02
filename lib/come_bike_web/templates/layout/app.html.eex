@@ -30,6 +30,14 @@
 
       <div class="container">
 
+        <div class="alert alert-danger" role="alert">
+          <h4 class="alert-heading">Under Active Development! <i class="fas fa-exclamation-triangle"></i></h4>
+          <p>We thank you very much for visiting our site, but we regret to inform you that this site is not functional just yet and is under active development</p>
+          <hr>
+          <p class="">However, we very much want your support and invite you to be a part of that process by contributing time, opinions and what ever skill sets you can offer.</p>
+          <p>If you would like to know more please vist our source code for our site at <a href="https://github.com/ComeBike">https://github.com/ComeBike</a>.
+        </div>
+
         <%= render "flash.html", conn: @conn %>
 
         <main role="main">
