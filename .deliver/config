@@ -17,7 +17,8 @@ pre_erlang_clean_compile() {
     # runs the commands on the build host
     [ -f ~/.profile ] && source ~/.profile # load profile (optional)
 
-    ecto "loaded Profile"
+    echo "loaded Profile"
+    
     # enter the build directory on the build host (required)
     cd '$BUILD_AT/assets'
 
