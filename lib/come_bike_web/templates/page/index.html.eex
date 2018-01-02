@@ -7,3 +7,74 @@
     <% end %>
   <% end %>
 </div>
+
+<hr>
+<section id="services" class="section">
+   <div class="container">
+      <div class="section-header">
+         <h2>Come Join Our Open <span>Comunity</span></h2>
+         <hr>
+         <p>Come Bike is an event calendar and ride tracker for the peole by the peopele.</p>
+      </div>
+      <div class="row">
+         <div class="col-md-4 col-sm-6">
+            <div class="" >
+               <div class="icon">
+                  <i class="fab fa-github"></i>
+               </div>
+               <h4>Its Open Source</h4>
+               <p>See something that could be improved? Lets make it happen!</p>
+               <p>Want access to your data? Lets make apis to provide you what is yours.</p>
+               <p><a href="https://github.com/ComeBike">https://github.com/ComeBike</a>
+            </div>
+         </div>
+         <div class="col-md-4 col-sm-6">
+            <div class="">
+               <div class="icon">
+                  <i class="far fa-handshake"></i>
+               </div>
+               <h4>We are Incluesive</h4>
+               <p>This is a community for everyone, we want everyone to feel welcome and involded.</p>
+               <p>The only thing you need to be apart of this family is a love to ride.</p>
+            </div>
+         </div>
+         <div class="col-md-4 col-sm-6">
+            <div class="" data-wow-delay="0.6s" style="visibility: visible;-webkit-animation-delay: 0.6s; -moz-animation-delay: 0.6s; animation-delay: 0.6s;">
+               <div class="icon">
+                  <i class="far fa-thumbs-up"></i>
+               </div>
+               <h4>Keep Safe</h4>
+               <p>Read reviews from other riders, become informed of the type of ride before commiting to go on it.</p>
+               <p>Report unsafe or harasing behaviors</p>
+            </div>
+         </div>
+         <div class="col-md-4 col-sm-6">
+            <div class="" data-wow-delay="0.8s" style="visibility: visible;-webkit-animation-delay: 0.8s; -moz-animation-delay: 0.8s; animation-delay: 0.8s;">
+               <div class="icon">
+                  <i class="fas fa-wifi"></i>
+               </div>
+               <h4>Track the ride in real time</h4>
+               <p>Come soon we will offer an abbility to track your ride and share it with the rest of the group real time so that way no one gets left out.</p>
+            </div>
+         </div>
+         <div class="col-md-4 col-sm-6">
+            <div class="" data-wow-delay="1s" style="visibility: visible;-webkit-animation-delay: 1s; -moz-animation-delay: 1s; animation-delay: 1s;">
+               <div class="icon">
+                  <i class="fas fa-bullhorn"></i>
+               </div>
+               <h4>Promote your rides!</h4>
+               <p>Get your community to come to your ride by sharing it here for all to see</p>
+            </div>
+         </div>
+         <div class="col-md-4 col-sm-6">
+            <div class="" data-wow-delay="1.2s" style="visibility: visible;-webkit-animation-delay: 1.2s; -moz-animation-delay: 1.2s; animation-delay: 1.2s;">
+               <div class="icon">
+                  <i class="fas fa-road"></i>
+               </div>
+               <h4>Give back to the community</h4>
+               <p>We are commited to providing any and all of our data free of cost to help provide insite into how to make better inferstructor choices for cyclists</p>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
