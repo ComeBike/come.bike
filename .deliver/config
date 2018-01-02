@@ -11,20 +11,27 @@ PROD_USER="deploy"
 DELIVER_TO="/home/deploy"
 
 pre_erlang_clean_compile() {
-  status "Preparing assets with: brunch build and phoenix.digest"
+  status "Preparing assets with: Webpack and phoenix.digest"
   __sync_remote "
     set -e
     # runs the commands on the build host
     [ -f ~/.profile ] && source ~/.profile # load profile (optional)
 
+    ecto "loaded Profile"
     # enter the build directory on the build host (required)
     cd '$BUILD_AT/assets'
+
+    ecto "cd to assets"
 
     # installing npm dependencies
     yarn install $SILENCE || error "yarn"
 
+    ecto "Ran Yarn"
+
     # building webpack
     node_modules/webpack/bin/webpack.js -p $SILENCE || error "webpack"
+
+    ecto "Ran Webpack"
 
     cd '$BUILD_AT'
     # run your custom task
