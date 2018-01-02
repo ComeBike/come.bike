@@ -52,7 +52,9 @@ defmodule ComeBike.Mixfile do
       {:phauxth, "~> 1.2"},
       {:argon2_elixir, "~> 1.2"},
       {:ueberauth, github: "ueberauth/ueberauth", override: true},
-      {:ueberauth_facebook, "~> 0.7.0"}
+      {:ueberauth_facebook, "~> 0.7.0"},
+      {:edeliver, "~> 1.4.4"},
+      {:distillery, ">= 0.8.0", warn_missing: false}
     ]
   end
 

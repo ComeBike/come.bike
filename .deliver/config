@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+APP="come_bike"
+
+BUILD_HOST="come.bike"
+BUILD_USER="deploy"
+BUILD_AT="/tmp/edeliver/come_bike/builds"
+
+PROD_HOSTS="come.bike"
+PROD_USER="deploy"
+DELIVER_TO="/home/deploy"
+
+pre_erlang_clean_compile() {
+  status "Preparing assets with: brunch build and phoenix.digest"
+  __sync_remote "
+    set -e
+    # runs the commands on the build host
+    [ -f ~/.profile ] && source ~/.profile # load profile (optional)
+
+    # enter the build directory on the build host (required)
+    cd '$BUILD_AT/assets'
+
+    # installing npm dependencies
+    yarn install $SILENCE || error "yarn"
+
+    # building webpack
+    node_modules/webpack/bin/webpack.js -p $SILENCE || error "webpack"
+
+    cd '$BUILD_AT'
+    # run your custom task
+    APP='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phoenix.digest $SILENCE || error "digest"
+  "
+}
