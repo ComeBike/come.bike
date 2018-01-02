@@ -21,17 +21,17 @@ pre_erlang_clean_compile() {
     # enter the build directory on the build host (required)
     cd '$BUILD_AT/assets'
 
-    ecto "cd to assets"
+    echo "cd to assets"
 
     # installing npm dependencies
     yarn install $SILENCE || error "yarn"
 
-    ecto "Ran Yarn"
+    echo "Ran Yarn"
 
     # building webpack
     node_modules/webpack/bin/webpack.js -p $SILENCE || error "webpack"
 
-    ecto "Ran Webpack"
+    echo "Ran Webpack"
 
     cd '$BUILD_AT'
     # run your custom task
