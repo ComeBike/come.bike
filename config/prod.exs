@@ -10,7 +10,7 @@ config :come_bike, ComeBikeWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
-config :come_bike, ComeBikeWeb.Repo,
+config :come_bike, ComeBike.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "${DB_USER}",
   password: "${DB_PASS}",
