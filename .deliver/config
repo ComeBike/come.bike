@@ -6,8 +6,8 @@ BUILD_HOST="come.bike"
 BUILD_USER="deploy"
 BUILD_AT="/tmp/edeliver/come_bike/builds"
 
-PROD_HOSTS="come.bike"
-PROD_USER="deploy"
+PRODUCTION_HOST="come.bike"
+PRODUCTION_USER="deploy"
 DELIVER_TO="/home/deploy"
 
 pre_erlang_clean_compile() {
@@ -17,24 +17,17 @@ pre_erlang_clean_compile() {
     # runs the commands on the build host
     [ -f ~/.profile ] && source ~/.profile # load profile (optional)
 
-    echo "loaded Profile"
-    
     # enter the build directory on the build host (required)
     cd '$BUILD_AT/assets'
-
-    echo "cd to assets"
 
     # installing npm dependencies
     yarn install $SILENCE || error "yarn"
 
-    echo "Ran Yarn"
-
     # building webpack
     node_modules/webpack/bin/webpack.js -p $SILENCE || error "webpack"
 
-    echo "Ran Webpack"
-
     cd '$BUILD_AT'
+
     # run your custom task
     APP='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phoenix.digest $SILENCE || error "digest"
   "
