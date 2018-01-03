@@ -23,7 +23,7 @@
                </div>
                <h4>Its Open Source</h4>
                <p>See something that could be improved? Lets make it happen!</p>
-               <p>Want access to your data? Lets make apis to provide you what is yours.</p>
+               <p>Want access to your data? Lets make APIs to provide you what is yours.</p>
                <p><a href="https://github.com/ComeBike">https://github.com/ComeBike</a>
             </div>
          </div>
@@ -32,9 +32,9 @@
                <div class="icon">
                   <i class="far fa-handshake"></i>
                </div>
-               <h4>We are Incluesive</h4>
-               <p>This is a community for everyone, we want everyone to feel welcome and involved.</p>
-               <p>The only thing you need to be apart of this family is a love to ride.</p>
+               <h4>We are Inclusive</h4>
+               <p>This is a community for everyone. We want everyone to feel welcome and involved.</p>
+               <p>The only thing you need to be part of this family is a love to ride.</p>
             </div>
          </div>
          <div class="col-md-4 col-sm-6">
@@ -44,7 +44,7 @@
                </div>
                <h4>Keep Safe</h4>
                <p>Read reviews from other riders, become informed of the type of ride before commiting to go on it.</p>
-               <p>Report unsafe or harasing behaviors</p>
+               <p>Report unsafe or harassing behaviors</p>
             </div>
          </div>
          <div class="col-md-4 col-sm-6">
@@ -53,7 +53,7 @@
                   <i class="fas fa-wifi"></i>
                </div>
                <h4>Track the ride in real time</h4>
-               <p>Come soon we will offer an ability to track your ride and share it with the rest of the group real time so that way no one gets left out.</p>
+               <p>Coming soon we will offer an ability to track your ride and share it with the rest of the group real time so that way no one gets left out.</p>
             </div>
          </div>
          <div class="col-md-4 col-sm-6">
@@ -71,7 +71,7 @@
                   <i class="fas fa-road"></i>
                </div>
                <h4>Give back to the community</h4>
-               <p>We are commited to providing any and all of our data free of cost to help provide insite into how to make better infrastructure choices for cyclists</p>
+               <p>We are commited to providing any and all of our data free of cost to help provide insight into how to make better infrastructure choices for cyclists</p>
             </div>
          </div>
       </div>
