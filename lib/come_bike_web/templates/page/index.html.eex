@@ -1,13 +1,3 @@
-<div class="jumbotron">
-  <h2>Welcome to Come Bike</h2>
-  <p class="lead">An Open Source Bike Event Calendar</p>
-  <%= unless @current_user do %>
-    <%= link to: auth_path(@conn, :request, :facebook), class: "btn btn-primary"  do %>
-      <i class="fab fa-facebook"></i> Sign In With Facebook
-    <% end %>
-  <% end %>
-</div>
-
 <section id="services" class="section">
    <div class="container">
       <div class="section-header">

@@ -1,0 +1,22 @@
+<header class="page-header">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="header-content justify-content-md-center">
+                  <h1><i class="fas fa-bicycle"></i><span> Come.Bike </span></h1>
+                  <p>An Open Source Bike Event Calendar</p>
+                    <div>
+                    <%= unless @current_user do %>
+                    <div class="justify-content-md-center" align="center">
+
+                      <%= link to: auth_path(@conn, :request, :facebook), class: "btn btn-primary"  do %>
+                        <i class="fab fa-facebook"></i> Sign In With Facebook
+                      <% end %>
+                    </div>
+                    <% end %>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</header>

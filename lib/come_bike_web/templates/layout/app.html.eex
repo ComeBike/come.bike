@@ -28,9 +28,11 @@
 
       <%= render "header.html", conn: @conn, current_user: @current_user %>
 
+      <%= render_existing @view_module, "header." <> @view_template, assigns %>
+
       <div class="container">
 
-        <div class="alert alert-danger" role="alert">
+        <div class="beta alert alert-danger" role="alert">
           <h4 class="alert-heading">Under Active Development! <i class="fas fa-exclamation-triangle"></i></h4>
           <p>We thank you very much for visiting our site, but we regret to inform you that this site is not functional just yet and is under active development</p>
           <hr>

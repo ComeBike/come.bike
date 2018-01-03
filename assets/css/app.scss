@@ -1,7 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette');
+
+
 body{
 
 }
 
+.page-header {
+  //
+  height: 500px;
+  background: #111111;
+  background-image: url('/images/header.png');
+  background-position: center;
+  background-size: cover;
+  background-position-y: -426px;
+  //margin-bottom: 40px;
+
+  h1{
+    color: white;
+    font-family: 'Courgette', cursive;
+    font-size: 100px;
+  }
+  p{
+    color: white;
+    font-weight: bold;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    height: 500px;
+    width: 100%;
+    background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+    opacity: .6;
+  }
+  .container{
+    text-align: center;
+    .header-content {
+      padding: 150px;
+    }
+  }
+}
+#services{
+    h2{
+      font-family: 'Courgette', cursive;
+    }
+}
+.beta{
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+}
+
+.jumbotron{
+
+
+    position: relative;
+
+    background: url('/images/header.png') center center no-repeat;
+    background-size: cover;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+    opacity: .6;
+  }
+}
 .icon{
   font-size: 100px;
   text-align: center;
