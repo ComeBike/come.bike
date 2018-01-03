@@ -12,14 +12,23 @@ body{
   background-image: url('/images/header.png');
   background-position: center;
   background-size: cover;
-  background-position-y: -426px;
+  background-position-y: 94.7%;
   //margin-bottom: 40px;
+
 
   h1{
     color: white;
     font-family: 'Courgette', cursive;
-    font-size: 100px;
+
+    font-size: 50px;
+
+    @media (min-width: 960px) {
+      font-size: 100px;
+    }
   }
+
+
+
   p{
     color: white;
     font-weight: bold;
@@ -34,20 +43,26 @@ body{
   }
   .container{
     text-align: center;
+
     .header-content {
-      padding: 150px;
+      padding: 150px 0px 0px 0px;
+
+      @media (min-width: 960px) {
+        padding: 150px;
+      }
     }
+
   }
 }
+
 #services{
-    h2{
-      font-family: 'Courgette', cursive;
-    }
+  h2{
+    font-family: 'Courgette', cursive;
+  }
 }
 .beta{
   margin-top: 40px;
   margin-bottom: 40px;
-
 }
 
 .jumbotron{
