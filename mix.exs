@@ -54,7 +54,8 @@ defmodule ComeBike.Mixfile do
       {:ueberauth, github: "ueberauth/ueberauth", override: true},
       {:ueberauth_facebook, "~> 0.7.0"},
       {:edeliver, "~> 1.4.4"},
-      {:distillery, ">= 0.8.0", warn_missing: false}
+      {:distillery, ">= 0.8.0", warn_missing: false},
+      {:sentry, "~> 6.0.0"}
     ]
   end
 

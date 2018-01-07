@@ -16,3 +16,13 @@ config :come_bike, ComeBike.Repo,
   password: "${DB_PASS}",
   database: "${DB}",
   pool_size: 15
+
+config :sentry,
+  dsn: "${SENTRY_DNS}",
+  environment_name: :prod,
+  enable_source_code_context: true,
+  root_source_code_path: File.cwd!(),
+  tags: %{
+    env: "production"
+  },
+  included_environments: [:prod]
