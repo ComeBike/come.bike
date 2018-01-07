@@ -65,10 +65,24 @@ module.exports = {
       Popper: ['popper.js', 'default']
     }),
 
-    new CopyWebpackPlugin([{
-      from: './static/',
-      to: "../"
-    }]),
+    new CopyWebpackPlugin([
+      {
+        from: './static/',
+        to: "../"
+      },
+      {
+        from: './static/OneSignalSDKUpdaterWorker.js',
+        to: '../OneSignalSDKUpdaterWorker.js'
+      },
+      {
+        from: './static/OneSignalSDKWorker.js',
+        to: '../OneSignalSDKWorker.js'
+      },
+      {
+        from: './static/manifest.json',
+        to: '../manifest.json'
+      }
+    ]),
 
     new ExtractTextPlugin('../css/[name].css'),
 
