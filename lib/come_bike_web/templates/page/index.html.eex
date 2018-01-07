@@ -1,8 +1,4 @@
-<button class="js-push-button" disabled>
-  Enable Push Messages
-</button>
-
-<section id="rides" class="section">
+<!-- <section id="rides" class="section">
 <div class="container">
   <div class="section-header">
     <h2 class="text-center">Today's Rides</h2>
@@ -46,7 +42,7 @@
   </div>
   <% end %>
 </div>
-</section>
+</section> -->
 
 <section id="services" class="section">
   <div class="container">
