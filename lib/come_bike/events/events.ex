@@ -18,7 +18,7 @@ defmodule ComeBike.Events do
 
   """
   def list_rides do
-    Repo.all(Ride)
+    Repo.all(from(r in Ride, preload: [:user]))
   end
 
   @doc """
@@ -35,7 +35,7 @@ defmodule ComeBike.Events do
       ** (Ecto.NoResultsError)
 
   """
-  def get_ride!(id), do: Repo.get!(Ride, id)
+  def get_ride!(id), do: Repo.one!(from(r in Ride, where: r.id == ^id, preload: [:user]))
 
   def get_ride_by_user!(id, user), do: Repo.get_by!(Ride, id: id, user_id: user.id)
 

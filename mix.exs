@@ -55,7 +55,8 @@ defmodule ComeBike.Mixfile do
       {:ueberauth_facebook, "~> 0.7.0"},
       {:edeliver, "~> 1.4.4"},
       {:distillery, ">= 0.8.0", warn_missing: false},
-      {:sentry, "~> 6.0.0"}
+      {:sentry, "~> 6.0.0"},
+      {:ex_machina, "~> 2.1", only: :test}
     ]
   end
 

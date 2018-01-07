@@ -9,7 +9,14 @@ defmodule ComeBike.Accounts.User do
     field(:password_hash, :string)
     field(:sessions, {:map, :integer}, default: %{})
     field(:facebook_uid, :string)
-    has_many(:rides, ComeBike.Events.Ride)
+
+    has_many(
+      :rides,
+      ComeBike.Events.Ride,
+      on_replace: :delete,
+      on_delete: :delete_all
+    )
+
     timestamps()
   end
 
