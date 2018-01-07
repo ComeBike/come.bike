@@ -1,12 +1,29 @@
 @import url('https://fonts.googleapis.com/css?family=Courgette');
 
+
 .page-header {
   height: 500px;
+  @media (max-width: 959px) {
+    height: 300px;
+    .video{
+      height: 300px;
+      height: inherit;
+      overflow: hidden;
+      iframe{
+        height: 100% !important;
+        width: 861px;
+      }
+    }
+  }
   background: #111111;
-  background-image: url('/images/header.png');
   background-position: center;
   background-size: cover;
   background-position-y: 94.7%;
+
+  iframe {
+    width: 1440px;
+    height: 500px;
+  }
 
   h1{
     color: white;
@@ -28,13 +45,24 @@
     width: 100%;
     background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
     opacity: .6;
+
+    @media (max-width: 959px) {
+      height: 300px;
+    }
   }
   .container{
+    margin-top: -500px;
+    @media (max-width: 959px) {
+      margin-top: -280px;
+    }
+
     text-align: center;
     .header-content {
+
       padding: 150px 0px 0px 0px;
-      @media (min-width: 960px) {
-        padding: 150px;
+
+      @media (max-width: 959px) {
+        padding: 50px 0px 0px 0px;
       }
     }
   }
@@ -52,7 +80,7 @@
 
 .jumbotron{
     position: relative;
-    background: url('/images/header.png') center center no-repeat;
+    // background: url('/images/header.png') center center no-repeat;
     background-size: cover;
 
   &:before {

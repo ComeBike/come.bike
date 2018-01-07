@@ -83,8 +83,6 @@ defmodule ComeBike.EventsTest do
     test "delete_ride/1 deletes the ride" do
       ride = ride_fixture()
       assert {:ok, %Ride{}} = Events.delete_ride(ride)
-      require IEx
-      IEx.pry()
       assert_raise Ecto.NoResultsError, fn -> Events.get_ride!(ride.id) end
     end
 

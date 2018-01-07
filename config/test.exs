@@ -22,3 +22,5 @@ config :come_bike, ComeBike.Repo,
 config :argon2_elixir,
   t_cost: 2,
   m_cost: 8
+
+config :phauxth, log_level: false

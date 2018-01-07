@@ -1,10 +1,22 @@
 @import url(https://fonts.googleapis.com/css?family=Courgette);.page-header {
   height: 500px;
   background: #111111;
-  background-image: url("/images/header.png");
   background-position: center;
   background-size: cover;
   background-position-y: 94.7%; }
+  @media (max-width: 959px) {
+    .page-header {
+      height: 300px; }
+      .page-header .video {
+        height: 300px;
+        height: inherit;
+        overflow: hidden; }
+        .page-header .video iframe {
+          height: 100% !important;
+          width: 861px; } }
+  .page-header iframe {
+    width: 1440px;
+    height: 500px; }
   .page-header h1 {
     color: white;
     font-family: 'Courgette', cursive;
@@ -22,13 +34,20 @@
     width: 100%;
     background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
     opacity: .6; }
+    @media (max-width: 959px) {
+      .page-header:before {
+        height: 300px; } }
   .page-header .container {
+    margin-top: -500px;
     text-align: center; }
+    @media (max-width: 959px) {
+      .page-header .container {
+        margin-top: -280px; } }
     .page-header .container .header-content {
       padding: 150px 0px 0px 0px; }
-      @media (min-width: 960px) {
+      @media (max-width: 959px) {
         .page-header .container .header-content {
-          padding: 150px; } }
+          padding: 50px 0px 0px 0px; } }
 
 #services h2 {
   font-family: 'Courgette', cursive; }
@@ -39,7 +58,6 @@
 
 .jumbotron {
   position: relative;
-  background: url("/images/header.png") center center no-repeat;
   background-size: cover; }
   .jumbotron:before {
     content: '';
