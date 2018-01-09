@@ -1,72 +1,119 @@
 @import url('https://fonts.googleapis.com/css?family=Courgette');
 
-
+html{
+  word-wrap: break-word;
+}
 .page-header {
-  height: 500px;
-  @media (max-width: 959px) {
-    height: 300px;
-    .video{
-      height: 300px;
-      height: inherit;
-      overflow: hidden;
-      iframe{
-        height: 100% !important;
-        width: 861px;
-      }
-    }
-  }
-  background: #111111;
-  background-position: center;
-  background-size: cover;
-  background-position-y: 94.7%;
 
-  iframe {
-    width: 1440px;
-    height: 500px;
-  }
-
-  h1{
-    color: white;
-    font-family: 'Courgette', cursive;
-    font-size: 50px;
-    @media (min-width: 960px) {
-      font-size: 100px;
-    }
-  }
-
-  p{
-    color: white;
-    font-weight: bold;
-  }
   &:before {
     content: '';
     position: absolute;
     height: 500px;
+    @media (max-width: 959px) {
+      height: 333px;
+    }
     width: 100%;
     background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
     opacity: .6;
+    z-index: 0;
 
-    @media (max-width: 959px) {
-      height: 300px;
-    }
   }
-  .container{
-    margin-top: -500px;
+
+  height: 500px;
+  overflow: hidden;
+  @media (max-width: 959px) {
+    height: 333px;
+  }
+
+
+  #myvid {
+    z-index: -1;
+    height: 500px;
     @media (max-width: 959px) {
-      margin-top: -280px;
+      height: 333px;
+    }
+    position: relative;
+    top: 0; right: 0; bottom: 0; left: 0;
+    overflow: hidden;
+
+    object-fit: cover;
+  }
+  #myvid > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  /* 1. No object-fit support: */
+  @media (min-aspect-ratio: 16/9) {
+    #myvid > iframe { height: 300%; top: -100%; }
+  }
+  @media (max-aspect-ratio: 16/9) {
+    #myvid > iframe { width: 300%; left: -100%; }
+  }
+  /* 2. If supporting object-fit, overriding (1): */
+  // @supports (object-fit: cover) {
+  //   #myvid > iframe {
+  //     top: 0; left: 0;
+  //     width: 100%; height: 100%;
+  //     object-fit: cover;
+  //   }
+  // }
+
+
+  .container{
+
+    z-index: 1;
+    padding-top: 40px;
+    @media (min-width: 960px) {
+      padding-top: 160px;
+      margin-top: -500px;
+    }
+    @media (max-width: 959px) {
+      padding-top: 90px;
+      margin-top: -333px;
     }
 
-    text-align: center;
     .header-content {
+      text-align: center;
+      h1{
+        color: white;
+        font-family: 'Courgette', cursive;
+        font-size: 50px;
 
-      padding: 150px 0px 0px 0px;
+        @media (min-width: 960px) {
+          font-size: 100px;
+        }
+      }
 
-      @media (max-width: 959px) {
-        padding: 50px 0px 0px 0px;
+      p{
+        color: white;
+        font-weight: bold;
       }
     }
   }
 }
+
+// @media (max-width: 1439px) {
+//   height: 100%;
+//   width: 1440px;
+//   iframe{
+//     height: 100%;
+//     width: 100%;
+//   }
+// }
+//
+// @media (max-width: 959px) {
+//   height: 100%;
+//   width: 1440px;
+//   iframe{
+//     height: 100%;
+//     width: 100%;
+//   }
+// }
+
+
 
 #services{
   h2{

@@ -1,53 +1,75 @@
-@import url(https://fonts.googleapis.com/css?family=Courgette);.page-header {
+@import url(https://fonts.googleapis.com/css?family=Courgette);html {
+  word-wrap: break-word; }
+
+.page-header {
   height: 500px;
-  background: #111111;
-  background-position: center;
-  background-size: cover;
-  background-position-y: 94.7%; }
-  @media (max-width: 959px) {
-    .page-header {
-      height: 300px; }
-      .page-header .video {
-        height: 300px;
-        height: inherit;
-        overflow: hidden; }
-        .page-header .video iframe {
-          height: 100% !important;
-          width: 861px; } }
-  .page-header iframe {
-    width: 1440px;
-    height: 500px; }
-  .page-header h1 {
-    color: white;
-    font-family: 'Courgette', cursive;
-    font-size: 50px; }
-    @media (min-width: 960px) {
-      .page-header h1 {
-        font-size: 100px; } }
-  .page-header p {
-    color: white;
-    font-weight: bold; }
+  overflow: hidden;
+  /* 1. No object-fit support: */
+  /* 2. If supporting object-fit, overriding (1): */ }
   .page-header:before {
     content: '';
     position: absolute;
     height: 500px;
     width: 100%;
     background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
-    opacity: .6; }
+    opacity: .6;
+    z-index: 0; }
     @media (max-width: 959px) {
       .page-header:before {
-        height: 300px; } }
+        height: 333px; } }
+  @media (max-width: 959px) {
+    .page-header {
+      height: 333px; } }
+  .page-header #myvid {
+    z-index: -1;
+    height: 500px;
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    object-fit: cover; }
+    @media (max-width: 959px) {
+      .page-header #myvid {
+        height: 333px; } }
+  .page-header #myvid > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+  @media (min-aspect-ratio: 16 / 9) {
+    .page-header #myvid > iframe {
+      height: 300%;
+      top: -100%; } }
+  @media (max-aspect-ratio: 16 / 9) {
+    .page-header #myvid > iframe {
+      width: 300%;
+      left: -100%; } }
   .page-header .container {
-    margin-top: -500px;
-    text-align: center; }
+    z-index: 1;
+    padding-top: 40px; }
+    @media (min-width: 960px) {
+      .page-header .container {
+        padding-top: 160px;
+        margin-top: -500px; } }
     @media (max-width: 959px) {
       .page-header .container {
-        margin-top: -280px; } }
+        padding-top: 90px;
+        margin-top: -333px; } }
     .page-header .container .header-content {
-      padding: 150px 0px 0px 0px; }
-      @media (max-width: 959px) {
-        .page-header .container .header-content {
-          padding: 50px 0px 0px 0px; } }
+      text-align: center; }
+      .page-header .container .header-content h1 {
+        color: white;
+        font-family: 'Courgette', cursive;
+        font-size: 50px; }
+        @media (min-width: 960px) {
+          .page-header .container .header-content h1 {
+            font-size: 100px; } }
+      .page-header .container .header-content p {
+        color: white;
+        font-weight: bold; }
 
 #services h2 {
   font-family: 'Courgette', cursive; }
