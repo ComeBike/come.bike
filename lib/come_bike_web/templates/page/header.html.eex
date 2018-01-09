@@ -46,19 +46,29 @@
           height: '390',
           width: '640',
           videoId: 'pameDEvMx_8',
+
           events: {
             'onReady': onPlayerReady
-
           },
           playerVars: {
             playlist: 'pameDEvMx_8',
-            loop: 1
+            loop: 1,
+            mute: 1,
+            autoplay: 1,
+            controls: 0,
+            rel: 0,
+            fs: 0
           }
         });
       }
 
       // 4. The API will call this function when the video player is ready.
       function onPlayerReady(event) {
+        player.addEventListener('onStateChange', onPlayerStateChange);
+        event.target.playVideo();
+      }
+
+      function onPlayerStateChange(event) {
         event.target.playVideo();
       }
 
