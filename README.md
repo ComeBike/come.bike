@@ -34,13 +34,14 @@ Its recommended you use a version manager to install the required software such 
 
 All code merged into the master branch will need to be done so from a PR.
 All PRs require passing tests and no loss in code test coverage.
-If possible it would be nice to have no less than 2 Peers review the PRs before merged into master.
+If possible it would be nice to have no less than 2 Peers review the PRs before its merged into master.
 
 
 ## Contributing Ideas
 
 We welcome feed back in all forms. Please feel free to write an issue for the following.
-- Bugs: If you run into a bug please the issue respectively
+- Bugs: If you run into a bug please tag the issue respectively    
+Bugs are best described when providing info about where the issue happened, the steps to reproduce the issue and the observed and expected behaviors.  
 - Feature requests: If you like to see something on come.bike tag the issue respectively
 
-Note: Not all issues submitted are guaranteed to be addressed and this site does not provide any warranty for any of its defects. 
+Note: Not all issues submitted are guaranteed to be addressed and this site does not provide any warranty for any of its defects.
