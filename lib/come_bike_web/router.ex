@@ -27,7 +27,8 @@ defmodule ComeBikeWeb.Router do
     pipe_through(:browser)
 
     get("/", PageController, :index)
-
+    get("/tos", PageController, :tos)
+    get("privacy", PageController, :privacy)
     resources("/rides", RideController)
     resources("/users", UserController)
     resources("/sessions", SessionController, only: [:new, :create, :delete])

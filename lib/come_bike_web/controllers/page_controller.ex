@@ -6,4 +6,12 @@ defmodule ComeBikeWeb.PageController do
     rides = Events.list_rides()
     render(conn, "index.html", rides: rides)
   end
+
+  def tos(conn, _params) do
+    render(conn, "tos.html")
+  end
+
+  def privacy(conn, _params) do
+    render(conn, "privacy.html")
+  end
 end
