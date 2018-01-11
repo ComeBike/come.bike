@@ -56,7 +56,9 @@ defmodule ComeBike.Mixfile do
       {:edeliver, "~> 1.4.4"},
       {:distillery, ">= 0.8.0", warn_missing: false},
       {:sentry, "~> 6.0.0"},
-      {:ex_machina, "~> 2.1", only: :test}
+      {:ex_machina, "~> 2.1", only: :test},
+      {:tesla, "~> 0.10.0"},
+      {:poison, ">= 1.0.0"}
     ]
   end
 

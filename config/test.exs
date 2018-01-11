@@ -24,3 +24,5 @@ config :argon2_elixir,
   m_cost: 8
 
 config :phauxth, log_level: false
+
+config :tesla, adapter: :mock

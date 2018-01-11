@@ -6,22 +6,29 @@ defmodule ComeBikeWeb.RideControllerTest do
   import ComeBike.Factory
 
   setup %{conn: conn} do
+    Tesla.Mock.mock(fn
+      %{method: :get, url: "http://api.geonames.org/timezoneJSON"} ->
+        {
+          200,
+          %{"Content-Type" => "application/json"},
+          ~s({"sunrise":"2018-01-12 07:48","lng":-122.6765,"countryCode":"US","gmtOffset":-8,"rawOffset":-8,"sunset":"2018-01-12 16:49","timezoneId":"America/Los_Angeles","dstOffset":-7,"countryName":"United States","time":"2018-01-12 09:58","lat":45.52311})
+        }
+
+      %{method: :get, url: "http://nominatim.openstreetmap.org/search"} ->
+        {
+          200,
+          %{"Content-Type" => "application/json"},
+          ~s([{"place_id":"180992955","licence":"Data © OpenStreetMap contributors, ODbL 1.0. http:\/\/www.openstreetmap.org\/copyright","boundingbox":["45.483387638255","45.483487638255","-122.63903580617","-122.63893580617"],"lat":"45.4834376382547","lon":"-122.638985806172","display_name":"Reed, Oregon, 97202, United States of America","class":"place","type":"postcode","importance":0.26625}])
+        }
+    end)
+
     conn = conn |> bypass_through(ComeBikeWeb.Router, [:browser]) |> get("/")
     user = add_user("robin@example.com")
     {:ok, %{conn: conn, user: user}}
   end
 
   @create_attrs params_for(:ride)
-  # @update_attrs %{
-  #   description: "some updated description",
-  #   start_address: "some updated start_address",
-  #   start_city: "some updated start_city",
-  #   start_location_name: "some updated start_location_name",
-  #   start_state: "some updated start_state",
-  #   start_time: ~N[2011-05-18 15:01:01.000000],
-  #   start_zip: "some updated start_zip",
-  #   title: "some updated title"
-  # }
+
   @invalid_attrs %{
     description: nil,
     start_address: nil,
@@ -119,7 +126,6 @@ defmodule ComeBikeWeb.RideControllerTest do
   end
 
   defp create_ride(_) do
-    ride = fixture(:ride)
-    {:ok, ride: ride}
+    {:ok, ride: insert(:ride)}
   end
 end
