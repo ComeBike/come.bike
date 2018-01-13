@@ -45,7 +45,7 @@
     <link rel="manifest" href="/manifest.json" />
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 
-    <%= if Application.get_env(:come_bike, :env) == :prod %>
+
     <script>
       var OneSignal = window.OneSignal || [];
       OneSignal.push(function() {
@@ -56,7 +56,6 @@
         });
       });
     </script>
-    <% end %>
 
   </head>
 
