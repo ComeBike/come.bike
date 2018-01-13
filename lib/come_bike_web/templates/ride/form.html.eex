@@ -17,9 +17,20 @@
     <%= error_tag f, :description %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" style="position: relative;">
     <%= label f, :start_time, class: "control-label" %>
-    <%= datetime_select f, :start_time, class: "form-control" %>
+
+   <div class="input-group date" id="datetimepicker" data-target-input="nearest">
+     <%= text_input f, :start_time_local, class: "form-control datetimepicker-input", data: [target: "#datetimepicker"]  %>
+     <div class="input-group-append" data-target="#datetimepicker" data-toggle="datetimepicker">
+       <div class="input-group-text">
+         <i class="fa fa-calendar"></i>
+       </div>
+     </div>
+
+   </div>
+
+   <small style="color: lightgray;">Format: MM/DD/YYYY HH:MM AM/PM</small>
     <%= error_tag f, :start_time %>
   </div>
 

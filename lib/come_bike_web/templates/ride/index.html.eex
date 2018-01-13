@@ -20,7 +20,7 @@
     <tr>
       <td><%= ride.title %></td>
       <td><%= ride.description %></td>
-      <td><%= ride.start_time %></td>
+      <td><%= ride_date_link ride %></td>
       <td><%= ride.start_location_name %></td>
       <td><%= ride.start_address %></td>
       <td><%= ride.start_city %></td>

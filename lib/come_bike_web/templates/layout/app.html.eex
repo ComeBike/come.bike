@@ -44,16 +44,20 @@
 
     <link rel="manifest" href="/manifest.json" />
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <%= if Mix.env() == :prod do %>
     <script>
       var OneSignal = window.OneSignal || [];
       OneSignal.push(function() {
         OneSignal.init({
           appId: "bf0dadc4-13d0-4b9f-b6c3-99ad2e584f5f",
+          allowLocalhostAsSecureOrigin: true,
+
         });
       });
     </script>
-
+    <% end %>
   </head>
+
 
     <body>
 

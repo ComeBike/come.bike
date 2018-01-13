@@ -3,7 +3,7 @@ defmodule ComeBikeWeb.PageController do
   alias ComeBike.Events
 
   def index(conn, _params) do
-    rides = Events.list_rides()
+    rides = Events.todays_rides()
     render(conn, "index.html", rides: rides)
   end
 

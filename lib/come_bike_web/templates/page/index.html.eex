@@ -1,4 +1,4 @@
-<!-- <section id="rides" class="section">
+<section id="rides" class="section">
 <div class="container">
   <div class="section-header">
     <h2 class="text-center">Today's Rides</h2>
@@ -7,12 +7,31 @@
   <hr>
 
   <%= for ride <- @rides do %>
-  <div class="row article">
+  <div class="row article pt-3 pb-1 mb-3">
+
     <div class="col-md-3">
-      <div class="event-image">
-        <img src="http://via.placeholder.com/400x400">
+      <div class="event-meta color-before">
+
+        <div class="date-details">
+          <span class="event-d"></span>
+        </div>
+
+        <div class="time-details">
+          <span class="start-time"><%= ride_date_link ride %></span>
+        </div>
+
+        <div class="venue-details">
+          <span><%= ride.start_location_name %></span>
+
+          <address class="event-address">
+            <%= ride.start_address %></br>
+            <%= ride.start_city %> <%= ride.start_state %>, <%= ride.start_zip %>
+          </address>
+
+        </div>
       </div>
     </div>
+
     <div class="col-md-6">
       <div class="event-content">
         <h3 class="event-title">
@@ -23,26 +42,12 @@
         </div>
       </div>
     </div>
-    <div class="col-md-3">
-      <div class="event-meta color-before">
-        <div class="date-details">
-          <span class="event-d">03 Jan</span>
-        </div>
-        <div class="time-details">
-          <span class="start-time">All of the day</span>
-        </div>
-        <div class="venue-details">
-          <span>Location Name</span>
-          <address class="event-address">
-            <span>Minnesota</span>
-          </address>
-        </div>
-      </div>
-    </div>
+
+
   </div>
   <% end %>
 </div>
-</section> -->
+</section>
 
 <div class="beta alert alert-info" role="alert">
   <h4 class="alert-heading">Join The Conversation! <i class="fas fa-comments"></i></h4>

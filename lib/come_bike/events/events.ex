@@ -5,6 +5,7 @@ defmodule ComeBike.Events do
 
   import Ecto.Query, warn: false
   alias ComeBike.Repo
+  use Timex
 
   alias ComeBike.Events.Ride
 
@@ -18,7 +19,29 @@ defmodule ComeBike.Events do
 
   """
   def list_rides do
-    Repo.all(from(r in Ride, preload: [:user]))
+    Repo.all(
+      from(
+        r in Ride,
+        preload: [:user],
+        order_by: [asc: r.start_time]
+      )
+    )
+  end
+
+  def todays_rides do
+    start_at = Timex.now() |> Timex.beginning_of_day() |> IO.inspect()
+    end_at = Timex.now() |> Timex.end_of_day() |> IO.inspect()
+
+    Repo.all(
+      from(
+        r in Ride,
+        preload: [:user],
+        where: r.start_time >= ^start_at,
+        where: r.start_time <= ^end_at,
+        order_by: [asc: r.start_time]
+      )
+      |> IO.inspect()
+    )
   end
 
   @doc """

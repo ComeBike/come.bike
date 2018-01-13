@@ -23,7 +23,7 @@
 
   <li>
     <strong>Start time:</strong>
-    <%= @ride.start_time %>
+    <%= ride_date_link @ride %>
   </li>
 
   <li>
