@@ -44,8 +44,6 @@
 
     <link rel="manifest" href="/manifest.json" />
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-
-
     <script>
       var OneSignal = window.OneSignal || [];
       OneSignal.push(function() {
@@ -56,7 +54,6 @@
         });
       });
     </script>
-
   </head>
 
 
@@ -68,33 +65,8 @@
 
       <div class="container">
 
-        <div class="beta alert alert-primary" role="alert">
-          <h4 class="alert-heading text-center"><i class="fas fa-exclamation-triangle"></i> Brain Storming Session 1/13/18 <i class="fas fa-exclamation-triangle"></i></h4>
-
-          <p> INFO: Today (Jan 13th, 2018) at 1pm will are hosting our first meeting to kick off the launch of this project with a brain storming session.</p>
-          <p>
-            There are two options for attending this meeting: </br>
-            <ul>
-              <li>
-                Online ("Google hangouts") </br>
-                At 1pm a link will be posted here and at the event posting on facebook if you would like to attend online.
-                <a href="https://hangouts.google.com/hangouts/_/jja7uadwl5bgzcjuyv7tfx7ihqe">https://hangouts.google.com/hangouts/_/jja7uadwl5bgzcjuyv7tfx7ihqe</a>
-              </li>
-              <li>
-                In person ("@ Velo Cult") </br>
-                At 1pm you can show up to VeloCult at 1969 NE 42nd Ave, Portland, OR 97213.
-                This will be just before the meeting for the WNBR at the same location.
-              </li>
-            </ul>
-
-          </p>
-
-
-          <p>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/ZbqKBFUlVaA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </p>
-
-
+        <div class="beta alert alert-danger" role="alert">
+          <h4 class="alert-heading">Under Active Development! <i class="fas fa-exclamation-triangle"></i></h4>
           <p>We thank you very much for visiting our site, but we regret to inform you that this site is not functional just yet and is under active development</p>
           <hr>
           <p class="">However, we very much want your support and invite you to be a part of that process by contributing time, opinions and whatever skillsets you can offer.</p>
