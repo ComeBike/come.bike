@@ -14,7 +14,7 @@ defmodule ComeBikeWeb.PageView do
   end
 
   def ride_date_link(ride) do
-    tz = ride.tz_zone_id |> Timex.Timezone.get(ride.start_time) |> IO.inspect()
+    tz = ride.tz_zone_id |> Timex.Timezone.get(ride.start_time)
     start_time = Timex.Timezone.convert(ride.start_time, tz)
 
     raw(

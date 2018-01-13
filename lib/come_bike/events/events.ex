@@ -29,8 +29,8 @@ defmodule ComeBike.Events do
   end
 
   def todays_rides do
-    start_at = Timex.now() |> Timex.beginning_of_day() |> IO.inspect()
-    end_at = Timex.now() |> Timex.end_of_day() |> IO.inspect()
+    start_at = Timex.now() |> Timex.beginning_of_day()
+    end_at = Timex.now() |> Timex.end_of_day()
 
     Repo.all(
       from(
@@ -40,7 +40,6 @@ defmodule ComeBike.Events do
         where: r.start_time <= ^end_at,
         order_by: [asc: r.start_time]
       )
-      |> IO.inspect()
     )
   end
 
