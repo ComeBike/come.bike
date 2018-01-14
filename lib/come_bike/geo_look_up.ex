@@ -1,4 +1,16 @@
 defmodule ComeBike.GeoLookUp do
+  @spec get_lat_long(%{
+          start_address: string,
+          start_city: string,
+          start_state: string,
+          start_zip: string
+        }) :: %{
+          start_address: string,
+          start_city: string,
+          start_state: string,
+          start_zip: string
+        }
+
   def get_lat_long(%{
         start_address: street,
         start_city: city,
@@ -19,7 +31,7 @@ defmodule ComeBike.GeoLookUp do
         "start_state" => state,
         "start_zip" => zip
       }) do
-    ComeBike.NominatimOpenstreetmapApi.get_lat_log(street, city, state, zip)
+    ComeBike.NominatimOpenstreetmapApi.get_lat_lng(street, city, state, zip)
   end
 
   def get_lat_long(_), do: {:error, "Missing arguments"}

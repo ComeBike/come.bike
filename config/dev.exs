@@ -61,5 +61,6 @@ config :come_bike, ComeBike.Repo,
   username: "postgres",
   password: "postgres",
   database: "come_bike_dev",
+  types: ComeBike.PostgresTypes,
   hostname: "localhost",
   pool_size: 10

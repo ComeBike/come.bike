@@ -7,7 +7,7 @@ defmodule ComeBike.Events do
   alias ComeBike.Repo
   use Timex
 
-  alias ComeBike.Events.Ride
+  alias ComeBike.Events.{Ride, SearchRides, Zip}
 
   @doc """
   Returns the list of rides.
@@ -60,6 +60,36 @@ defmodule ComeBike.Events do
   def get_ride!(id), do: Repo.one!(from(r in Ride, where: r.id == ^id, preload: [:user]))
 
   def get_ride_by_user!(id, user), do: Repo.get_by!(Ride, id: id, user_id: user.id)
+
+  @doc """
+  Search for rides
+
+  ### Examples
+
+      iex> search_rides(%{field: value})
+      {:ok, %Ecto.Changeset{}, [%Ride{}, ...] }
+
+      iex> search_rides(%{field: bad_value})
+      {:error, error_message}
+
+  """
+  def search_rides(attrs) do
+    %SearchRides{}
+    |> SearchRides.changeset(attrs)
+    |> IO.inspect()
+    |> case do
+      %Ecto.Changeset{valid?: true} = cs ->
+        attrs |> IO.inspect()
+        rides = ComeBike.Search.find_by_zip_in_n_miles(attrs)
+
+        {:ok, rides}
+
+      %{errors: errors} = cs ->
+        {:error, "funk"}
+    end
+
+    # Do the searched
+  end
 
   @doc """
   Creates a ride.

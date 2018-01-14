@@ -50,9 +50,13 @@
   .page-header .container {
     z-index: 1;
     padding-top: 40px; }
+    .page-header .container label {
+      color: white; }
+    .page-header .container hr {
+      border-top: 1px solid white; }
     @media (min-width: 960px) {
       .page-header .container {
-        padding-top: 160px;
+        padding-top: 90px;
         margin-top: -500px; } }
     @media (max-width: 959px) {
       .page-header .container {
@@ -71,8 +75,11 @@
         color: white;
         font-weight: bold; }
 
-#services h2 {
+h2 {
   font-family: 'Courgette', cursive; }
+
+#rides {
+  margin-top: 40px; }
 
 .beta {
   margin-top: 40px;
@@ -94,6 +101,9 @@
 .icon {
   font-size: 100px;
   text-align: center; }
+
+#ride_description {
+  height: 300px; }
 
 footer {
   background: #333;

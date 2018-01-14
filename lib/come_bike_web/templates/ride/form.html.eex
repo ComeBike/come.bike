@@ -6,65 +6,99 @@
   <% end %>
 
   <div class="form-group">
-    <%= label f, :title, class: "control-label" %>
+    <%= label f, :title, class: "control-label" do %>
+      <i class="fas fa-bicycle"></i> Ride Name
+    <% end %>
     <%= text_input f, :title, class: "form-control" %>
     <%= error_tag f, :title %>
   </div>
 
   <div class="form-group">
-    <%= label f, :description, class: "control-label" %>
+    <%= label f, :short_description, class: "control-label" do %>
+      <i class="far fa-edit"></i> Short Ride Description (255 chars)
+    <% end %>
+    <%= textarea f, :short_description, class: "form-control" %>
+    <%= error_tag f, :short_description %>
+  </div>
+
+
+  <div class="form-group">
+    <%= label f, :description, class: "control-label" do %>
+      <i class="far fa-edit"></i> Ride Description
+    <% end %>
     <%= textarea f, :description, class: "form-control" %>
     <%= error_tag f, :description %>
   </div>
 
-  <div class="form-group" style="position: relative;">
-    <%= label f, :start_time, class: "control-label" %>
+<div class="row">
+  <div class="col-lg-4">
 
-   <div class="input-group date" id="datetimepicker" data-target-input="nearest">
-     <%= text_input f, :start_time_local, class: "form-control datetimepicker-input", data: [target: "#datetimepicker"]  %>
-     <div class="input-group-append" data-target="#datetimepicker" data-toggle="datetimepicker">
-       <div class="input-group-text">
-         <i class="fa fa-calendar"></i>
-       </div>
+    <div class="form-group" style="position: relative;">
+     <div class="date" id="datetimepicker" data-target-input="nearest">
+       <label class="control-label" for="ride_start_time"><i class="far fa-calendar-alt"></i> Start Time</label>
+       <%= text_input f, :start_time_local, class: "form-control datetimepicker-input", data: [target: "#datetimepicker"], placeholder: "MM/DD/YYYY HH:MM AM/PM"  %>
      </div>
+     <small style="color: lightgray;">Format: MM/DD/YYYY HH:MM AM/PM</small>
+      <%= error_tag f, :start_time %>
+    </div>
+  </div>
+  <div class="col-lg-8">
+    <div class="form-group">
+      <label class="control-label" for="ride_start_time"><i class="fas fa-building"></i></i> Start Location Name</label>
 
-   </div>
+      <%= text_input f, :start_location_name, class: "form-control" %>
+      <%= error_tag f, :start_location_name %>
+    </div>
 
-   <small style="color: lightgray;">Format: MM/DD/YYYY HH:MM AM/PM</small>
-    <%= error_tag f, :start_time %>
+  </div>
+</div>
+
+<div class="form-group">
+
+  <%= label f, :start_address, class: "control-label" do %>
+    <i class="fas fa-map-marker-alt"></i> Start Address
+  <% end %>
+  <%= text_input f, :start_address, class: "form-control" %>
+  <%= error_tag f, :start_address %>
+</div>
+
+<div class="row">
+  <div class="col-lg-5">
+
+    <div class="form-group">
+      <%= label f, :start_city, class: "control-label"  do %>
+        <i class="fas fa-map-marker-alt"></i> Start City
+      <% end %>
+      <%= text_input f, :start_city, class: "form-control" %>
+      <%= error_tag f, :start_city %>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= label f, :start_state, class: "control-label"  do %>
+        <i class="fas fa-map-marker-alt"></i> Start State
+      <% end %>
+      <%= text_input f, :start_state, class: "form-control" %>
+      <%= error_tag f, :start_state %>
+    </div>
+
+  </div>
+  <div class="col-lg-3">
+    <div class="form-group">
+      <%= label f, :start_zip, class: "control-label" do %>
+      <i class="fas fa-map-marker-alt"></i> Start Zip
+      <% end %>
+      <%= text_input f, :start_zip, class: "form-control" %>
+      <%= error_tag f, :start_zip %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= label f, :start_location_name, class: "control-label" %>
-    <%= text_input f, :start_location_name, class: "form-control" %>
-    <%= error_tag f, :start_location_name %>
-  </div>
+</div>
+
 
   <div class="form-group">
-    <%= label f, :start_address, class: "control-label" %>
-    <%= text_input f, :start_address, class: "form-control" %>
-    <%= error_tag f, :start_address %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :start_city, class: "control-label" %>
-    <%= text_input f, :start_city, class: "form-control" %>
-    <%= error_tag f, :start_city %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :start_state, class: "control-label" %>
-    <%= text_input f, :start_state, class: "form-control" %>
-    <%= error_tag f, :start_state %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :start_zip, class: "control-label" %>
-    <%= text_input f, :start_zip, class: "form-control" %>
-    <%= error_tag f, :start_zip %>
-  </div>
-
-  <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
+    <%= submit class: "btn btn-lg btn-primary" do %>
+      <i class="fas fa-pencil-alt"></i> Submit
+    <% end %>
   </div>
 <% end %>

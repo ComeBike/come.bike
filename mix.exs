@@ -5,7 +5,7 @@ defmodule ComeBike.Mixfile do
     [
       app: :come_bike,
       version: "0.0.2",
-      elixir: "~> 1.4",
+      elixir: "~> 1.6.0",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -60,7 +60,9 @@ defmodule ComeBike.Mixfile do
       {:tesla, "~> 0.10.0"},
       {:poison, ">= 1.0.0"},
       {:timex, "~> 3.1"},
-      {:timex_ecto, "~> 3.2"}
+      {:timex_ecto, "~> 3.2"},
+      {:geo, "~> 2.0"},
+      {:geo_postgis, "~> 1.0"}
     ]
   end
 

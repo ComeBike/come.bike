@@ -9,6 +9,7 @@ defmodule ComeBike.Events.Ride do
 
   schema "rides" do
     field(:description, :string)
+    field(:short_description, :string)
     field(:start_address, :string)
     field(:start_city, :string)
     field(:start_location_name, :string)
@@ -22,6 +23,7 @@ defmodule ComeBike.Events.Ride do
     field(:lng, :string)
     field(:tz_offset, :integer)
     field(:tz_zone_id, :string)
+    field(:geom, Geo.Point)
     belongs_to(:user, ComeBike.Accounts.User)
     timestamps()
   end
@@ -32,16 +34,19 @@ defmodule ComeBike.Events.Ride do
     |> cast(attrs, [
       :title,
       :description,
+      :short_description,
       :start_time_local,
       :start_location_name,
       :start_address,
       :start_city,
       :start_state,
-      :start_zip
+      :start_zip,
+      :geom
     ])
     |> validate_required([
       :title,
       :description,
+      :short_description,
       :start_time_local,
       :start_location_name,
       :start_address,
@@ -102,44 +107,32 @@ defmodule ComeBike.Events.Ride do
 
   defp put_timezone(cs), do: cs
 
+  defp put_start_time(%{changes: %{tz_zone_id: tz_zone_id}} = cs, %{
+         "start_time_local" => start_time_local
+       }) do
+    case cs do
+      %{valid?: true} ->
+        dt = Timex.parse!(start_time_local, "%m/%d/%Y %l:%M %p", :strftime)
+        utc_dt = Timex.to_datetime(dt, tz_zone_id) |> Timex.to_datetime("Etc/UTC")
+
+        cs
+        |> put_change(:start_time, utc_dt)
+
+      _ ->
+        cs
+    end
+  end
+
   defp put_start_time(%{changes: %{tz_zone_id: tz_zone_id}} = cs, attrs) do
     case cs do
       %{valid?: true} ->
-        dt = Timex.parse!(attrs["start_time_local"], "%m/%d/%Y %l:%M %p", :strftime)
-        utc_dt = Timex.to_datetime(dt, tz_zone_id) |> Timex.to_datetime("Etc/UTC")
+        dt =
+          Timex.parse!(
+            attrs["start_time_local"] || attrs[:start_time_local],
+            "%m/%d/%Y %l:%M %p",
+            :strftime
+          )
 
-        cs
-        |> put_change(:start_time, utc_dt)
-
-      _ ->
-        cs
-    end
-  end
-
-  defp put_start_time(
-         %{changes: %{tz_zone_id: tz_zone_id}} = cs,
-         %{"start_time_local" => start_time_local} = attrs
-       ) do
-    case cs do
-      %{valid?: true} ->
-        dt = Timex.parse!(start_time_local, "%m/%d/%Y %l:%M %p", :strftime)
-        utc_dt = Timex.to_datetime(dt, tz_zone_id) |> Timex.to_datetime("Etc/UTC")
-
-        cs
-        |> put_change(:start_time, utc_dt)
-
-      _ ->
-        cs
-    end
-  end
-
-  defp put_start_time(
-         %{data: %{tz_zone_id: tz_zone_id}} = cs,
-         %{"start_time_local" => start_time_local} = attrs
-       ) do
-    case cs do
-      %{valid?: true} ->
-        dt = Timex.parse!(start_time_local, "%m/%d/%Y %l:%M %p", :strftime)
         utc_dt = Timex.to_datetime(dt, tz_zone_id) |> Timex.to_datetime("Etc/UTC")
 
         cs

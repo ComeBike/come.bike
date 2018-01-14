@@ -1,5 +1,3 @@
-
-
 <header class="page-header">
 
   <div id="myvid">
@@ -7,27 +5,100 @@
   </div>
 
   <div class="container">
-      <div class="row">
-          <div class="col-md-12">
-              <div class="header-content justify-content-md-center">
-
-                  <h1><i class="fas fa-bicycle"></i><span> Come.Bike </span></h1>
-                  <p>An Open Source Bike Event Calendar</p>
-                    <div>
-                    <%= unless @current_user do %>
-                    <div class="justify-content-md-center" align="center">
-
-                      <%= link to: auth_path(@conn, :request, :facebook), class: "btn btn-primary"  do %>
-                        <i class="fab fa-facebook"></i> Sign In With Facebook
-                      <% end %>
-                    </div>
-                    <% end %>
-                  </div>
-              </div>
+    
+    <div class="row pb-3">
+      <div class="col-md-12">
+        <div class="header-content justify-content-md-center mb-3">
+          <h1><i class="fas fa-bicycle"></i><span> Come.Bike </span></h1>
+          <p>An Open Source Bike Event Calendar</p>
+          <div>
+            <%= unless @current_user do %>
+            <div class="justify-content-md-center" align="center">
+              <%= link to: auth_path(@conn, :request, :facebook), class: "btn btn-primary"  do %>
+                <i class="fab fa-facebook"></i> Sign In With Facebook
+              <% end %>
+            </div>
+            <% end %>
           </div>
+        </div>
       </div>
+    </div>
+
+    <div class="row d-none d-lg-block ">
+        <div class="col-md-12">
+          <%= form_for @search_rides, "/rides/search", [method: :get, class: "form-inline justify-content-center pt-3 pb-3 mt-3 mb-3", as: "search_rides"], fn f -> %>
+            <label class="mb-2 mr-sm-2" for="inputPassword6">Find</label>
+            <%= select(f, :type, ["All Rides": "all_rides", "Races": "races", "CX": "cs",  "Group Rides": "group_rides", "Family Rides": "family_rides", "Party Rides": "party_rides", "Protest Rides": "protest_rides"], class: "form-control mb-2 mr-sm-2") %>
+
+            <label class="mb-2 mr-sm-2" for="inputPassword6">within</label>
+
+            <%= select(f, :miles, ["10 Miles": 10, "20 Miles": 20, "100 Miles": 100, "Any Distance": 0], class: "form-control mb-2 mr-sm-2") %>
+
+            <label  class="mb-2 mr-sm-2" for="inlineFormInputName2">of </label>
+
+            <%= text_input f, :zip, class: "form-control mb-2 mr-sm-2", placeholder: "ZIP Code", hint: "foo" %>
+
+            <%= hidden_input f, :lat %>
+            <%= hidden_input f, :lng %>
+        <button type="submit" class="btn btn-primary mb-2 mr-sm-2">Search</button>
+        <% end %>
+      </div>
+    </div>
+
+        <!-- <%= if @search_rides.errors && @search_rides.action == :searched do %>
+          <%= for {key, {message, [validation: :required]}} <- @search_rides.errors do %>
+            <div class="row justify-content-center">
+              <div class="col-md-3 text-center danager">
+                <div class="alert alert-danger" role="alert">
+                  <%= "#{key} #{message}" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %> -->
+
+      </div>
+    </div>
   </div>
 </header>
+
+<div class="container d-block d-lg-none">
+  <div class="row">
+    <div class="col-md-12">
+
+      <%= form_for @conn, "/", [class: "form-inline justify-content-center pt-3 pb-3 mt-3 mb-3"], fn f -> %>
+        <label class="mb-2 mr-sm-2" for="inputPassword6">Find</label>
+
+        <%= select(f, :type, ["Races": "races", "CX": "cs",  "Group Rides": "group_rides", "Family Rides": "family_rides"]) %>
+
+        <!-- <select class="form-control mb-2 mr-sm-2" name="ride-src-type">
+          <option value="0" selected>All Rides</option>
+          <option value="1">Races</option>
+          <option value="2">CX</option>
+          <option value="3">Group Rides</option>
+          <option value="4">Family Rides</option>
+          <option value="5">Party Rides</option>
+          <option value="6">Protest Rides</option>
+        </select> -->
+
+        <label class="mb-2 mr-sm-2" for="ride-src-miles">within</label>
+
+        <select class="form-control mb-2 mr-sm-2" name="ride_src_miles" id="ride-src-miles">
+          <option value="0" selected>10 miles</option>
+          <option value="1">20 miles</option>
+          <option value="2">100 miles</option>
+          <option value="3">Any Distance of</option>
+        </select>
+
+        <label  class="mb-2 mr-sm-2" for="ride-src-zip">of </label>
+
+        <input type="text" name="ride-src-zip" class="form-control mb-2 mr-sm-2" id="ride-src-zip" placeholder="ZIP Code">
+
+        <button type="submit" class="btn btn-primary mb-2 mr-sm-2">Search</button>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
 <script>
