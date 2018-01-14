@@ -95,6 +95,9 @@
   font-size: 100px;
   text-align: center; }
 
+#ride_description {
+  height: 300px; }
+
 footer {
   background: #333;
   padding: 60px 0px 30px;
