@@ -14,6 +14,15 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :short_description, class: "control-label" do %>
+      <i class="far fa-edit"></i> Short Ride Description (255 chars)
+    <% end %>
+    <%= textarea f, :short_description, class: "form-control" %>
+    <%= error_tag f, :short_description %>
+  </div>
+
+
+  <div class="form-group">
     <%= label f, :description, class: "control-label" do %>
       <i class="far fa-edit"></i> Ride Description
     <% end %>

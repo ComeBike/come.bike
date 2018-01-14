@@ -7,7 +7,8 @@ defmodule ComeBikeWeb.PageView do
       ComeBikeWeb.PageView,
       "header.html",
       conn: assigns.conn,
-      current_user: assigns.current_user
+      current_user: assigns.current_user,
+      search_rides: assigns.search_rides
     )
 
     # {:safe, "<script src=#{Digitalcakes.Router.Helpers.static_path(assigns[:conn], "/js/admin.js")} ></script>"}

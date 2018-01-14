@@ -16,6 +16,7 @@ config :come_bike, ComeBike.Repo,
   password: "postgres",
   database: "come_bike_test",
   hostname: "localhost",
+  types: ComeBike.PostgresTypes,
   pool: Ecto.Adapters.SQL.Sandbox
 
 # Comeonin password hashing test config

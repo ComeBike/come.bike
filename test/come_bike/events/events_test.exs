@@ -28,16 +28,6 @@ defmodule ComeBike.EventsTest do
   describe "rides" do
     alias ComeBike.Events.Ride
     @create_attrs params_for(:ride)
-    @update_attrs %{
-      description: "some updated description",
-      start_address: "some updated start_address",
-      start_city: "some updated start_city",
-      start_location_name: "some updated start_location_name",
-      start_state: "some updated start_state",
-      start_time: ~N[2011-05-18 15:01:01.000000],
-      start_zip: "some updated start_zip",
-      title: "some updated title"
-    }
     @invalid_attrs %{
       description: nil,
       start_address: nil,
@@ -71,7 +61,7 @@ defmodule ComeBike.EventsTest do
       assert ride.start_city == @create_attrs.start_city
       assert ride.start_location_name == @create_attrs.start_location_name
       assert ride.start_state == @create_attrs.start_state
-      assert ride.start_time == @create_attrs.start_time
+      assert ride.start_time_local == @create_attrs.start_time_local
       assert ride.start_zip == @create_attrs.start_zip
       assert ride.title == @create_attrs.title
       assert ride.lat != nil
@@ -86,16 +76,18 @@ defmodule ComeBike.EventsTest do
 
     test "update_ride/2 with valid data updates the ride" do
       ride = ride_fixture()
-      assert {:ok, ride} = Events.update_ride(ride, @update_attrs)
+      attrs = params_for(:ride)
+
+      assert({:ok, ride} = Events.update_ride(ride, attrs))
       assert %Ride{} = ride
-      assert ride.description == "some updated description"
-      assert ride.start_address == "some updated start_address"
-      assert ride.start_city == "some updated start_city"
-      assert ride.start_location_name == "some updated start_location_name"
-      assert ride.start_state == "some updated start_state"
-      assert ride.start_time == ~N[2011-05-18 15:01:01.000000]
-      assert ride.start_zip == "some updated start_zip"
-      assert ride.title == "some updated title"
+      assert ride.description == attrs.description
+      assert ride.start_address == attrs.start_address
+      assert ride.start_city == attrs.start_city
+      assert ride.start_location_name == attrs.start_location_name
+      assert ride.start_state == attrs.start_state
+      assert ride.start_time_local == attrs.start_time_local
+      assert ride.start_zip == attrs.start_zip
+      assert ride.title == attrs.title
     end
 
     test "update_ride/2 with invalid data returns error changeset" do

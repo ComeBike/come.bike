@@ -20,4 +20,14 @@ defmodule ComeBikeWeb.RideView do
         Timex.format!(start_time, "{Mshort} {D}, {YYYY} at {h12}:{m} {am} {Zabbr}")
     )
   end
+
+  def relative_time(date_time) do
+    case date_time |> Timex.format("{relative}", :relative) do
+      {:ok, relative} ->
+        relative
+
+      _ ->
+        nil
+    end
+  end
 end

@@ -63,11 +63,17 @@ html{
 
 
   .container{
+    label {
+      color: white;
+    }
+    hr{
+      border-top: 1px solid white;
+    }
 
     z-index: 1;
     padding-top: 40px;
     @media (min-width: 960px) {
-      padding-top: 160px;
+      padding-top: 90px;
       margin-top: -500px;
     }
     @media (max-width: 959px) {
@@ -114,12 +120,14 @@ html{
 // }
 
 
-
-#services{
-  h2{
-    font-family: 'Courgette', cursive;
-  }
+h2{
+  font-family: 'Courgette', cursive;
 }
+
+#rides{
+  margin-top: 40px;
+}
+
 .beta{
   margin-top: 40px;
   margin-bottom: 40px;

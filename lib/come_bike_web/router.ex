@@ -29,6 +29,7 @@ defmodule ComeBikeWeb.Router do
     get("/", PageController, :index)
     get("/tos", PageController, :tos)
     get("/privacy", PageController, :privacy)
+    get("/rides/search", RideController, :search)
     resources("/rides", RideController)
     resources("/users", UserController)
     resources("/sessions", SessionController, only: [:new, :create, :delete])

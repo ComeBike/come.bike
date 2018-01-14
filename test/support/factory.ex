@@ -16,8 +16,8 @@ Rhodiae fovet",
       start_city: "Portland",
       start_location_name: "Salmon Street Fountain",
       start_state: "OR",
-      start_time: ~N[2010-04-17 14:00:00.000000],
-      start_zip: "some start_zip",
+      start_time_local: "01/18/2018 9:07 PM",
+      start_zip: "97202",
       user: build(:user)
     }
   end

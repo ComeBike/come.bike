@@ -2,14 +2,29 @@ defmodule ComeBikeWeb.RideController do
   use ComeBikeWeb, :controller
 
   alias ComeBike.Events
-  alias ComeBike.Events.Ride
+  alias ComeBike.Events.{Ride, SearchRides}
 
   import ComeBikeWeb.Authorize
   plug(:user_check when action in [:new, :create, :edit, :update, :delete])
 
+  def search(conn, %{"search_rides" => params}) do
+    changeset = SearchRides.changeset(%SearchRides{}, params)
+
+    case Events.search_rides(params) do
+      {:ok, rides} ->
+        render(conn, "index.html", rides: rides, search_rides: %{changeset | action: :searched})
+
+      {:error, message} ->
+        conn
+        |> put_flash(:error, message)
+        |> render("index.html", rides: [], search_rides: %{changeset | action: :searched})
+    end
+  end
+
   def index(conn, _params) do
+    cs = ComeBike.Events.SearchRides.changeset(%ComeBike.Events.SearchRides{}, %{})
     rides = Events.list_rides()
-    render(conn, "index.html", rides: rides)
+    render(conn, "index.html", rides: rides, search_rides: cs)
   end
 
   def new(conn, _params) do

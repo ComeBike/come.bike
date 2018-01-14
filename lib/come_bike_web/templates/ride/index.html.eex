@@ -1,40 +1,69 @@
-<h2>Listing Rides</h2>
+<div class="row d-none d-lg-block ">
+    <div class="col-md-12">
+      <%= form_for @search_rides, "/rides/search", [method: :get, class: "form-inline justify-content-center pt-3 pb-3 mt-3 mb-3", as: "search_rides"], fn f -> %>
+        <label class="mb-2 mr-sm-2" for="inputPassword6">Find</label>
+        <%= select(f, :type, ["All Rides": "all_rides", "Races": "races", "CX": "cs",  "Group Rides": "group_rides", "Family Rides": "family_rides", "Party Rides": "party_rides", "Protest Rides": "protest_rides"], class: "form-control mb-2 mr-sm-2") %>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Start time</th>
-      <th>Start location name</th>
-      <th>Start address</th>
-      <th>Start city</th>
-      <th>Start state</th>
-      <th>Start zip</th>
+        <label class="mb-2 mr-sm-2" for="inputPassword6">within</label>
 
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
+        <%= select(f, :miles, ["10 Miles": 10, "20 Miles": 20, "100 Miles": 100, "Any Distance": 0], class: "form-control mb-2 mr-sm-2") %>
+
+        <label  class="mb-2 mr-sm-2" for="inlineFormInputName2">of </label>
+
+        <%= text_input f, :zip, class: "form-control mb-2 mr-sm-2", placeholder: "ZIP Code", hint: "foo" %>
+
+        <%= hidden_input f, :lat %>
+        <%= hidden_input f, :lng %>
+    <button type="submit" class="btn btn-primary mb-2 mr-sm-2">Search</button>
+    <% end %>
+  </div>
+</div>
+
+<h2 class="mt-3 mb-3">Listing Rides</h2>
+
+
 <%= for ride <- @rides do %>
-    <tr>
-      <td><%= ride.title %></td>
-      <td><%= ride.description %></td>
-      <td><%= ride_date_link ride %></td>
-      <td><%= ride.start_location_name %></td>
-      <td><%= ride.start_address %></td>
-      <td><%= ride.start_city %></td>
-      <td><%= ride.start_state %></td>
-      <td><%= ride.start_zip %></td>
 
-      <td class="text-right">
-        <span><%= link "Show", to: ride_path(@conn, :show, ride), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Edit", to: ride_path(@conn, :edit, ride), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Delete", to: ride_path(@conn, :delete, ride), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
-      </td>
-    </tr>
+<div class="card mb-3 card-inverse mt-3">
+  <h3 class="card-header"><%= link ride.title |> String.capitalize, to: ride_path(@conn, :show, ride) %></h3>
+
+  <div class="card-block p-3">
+    <p class="card-text"><small class="text-muted"> <i class="far fa-calendar-alt"></i> Last updated <%= relative_time(ride.updated_at) %> | Created <%= relative_time(ride.inserted_at) %></small></p>
+
+    <div class="row mb-3">
+      <div class="col-lg-9">
+
+        <p class="card-text"><%= ride.short_description  %></p>
+
+        <p class="card-text">
+
+          <%= if @current_user && @current_user.id == ride.user.id do %>
+            <%= link to: ride_path(@conn, :edit, ride), class: "btn btn-primary" do %>
+              <i class="fas fa-edit"></i> Edit</a>
+            <% end %>
+          <% end %>
+
+          <%= link to: ride_path(@conn, :show, ride), class: "btn btn-info" do %>
+            <i class="fas fa-info-circle"></i> Read More
+          <% end %>
+          <!-- <a href="#" class="btn btn-secondary"><i class="far fa-star"></i> Save</a> -->
+        </p>
+      </div>
+      <div class="col-lg-3">
+        <ul class="list-unstyled">
+
+          <li><small class="text-muted"><i class="far fa-calendar-alt"></i> <%= ride.start_time_local %></small></li>
+          <li><small class="text-muted"><i class="fas fa-map-marker-alt"></i> <%= ride.start_city %> <%= ride.start_state %>, <%= ride.start_zip %></small></li>
+          <!-- <li><small class="text-muted"><i class="fas fa-user"></i> Hosted By: </small></li>
+          <li><small class="text-muted"><i class="fas fa-users"></i> RSVP: </small></li>
+          <li><small class="text-muted"><i class="fas fa-eye"></i> Views: </small></li>
+          <li><small class="text-muted"><i class="fas fa-comments"></i> Comments: </li> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>
-  </tbody>
-</table>
 
-<span><%= link "New Ride", to: ride_path(@conn, :new) %></span>
+
+<!-- <span><%= link "New Ride", to: ride_path(@conn, :new) %></span> -->
