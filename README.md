@@ -33,7 +33,7 @@ Its recommended you use a version manager to install the required software such 
 ## Contributing code
 
 All code merged into the master branch will need to be done so from a PR.
-All PRs require passing tests and no loss in code test coverage.
+All PRs require passing tests and no loss in code test coverage ("I should probably add I"m a hpyocrate here"). 
 If possible it would be nice to have no less than 2 Peers review the PRs before its merged into master.
 
 
