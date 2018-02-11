@@ -15,6 +15,7 @@ config :come_bike, ComeBike.Repo,
   username: "${DB_USER}",
   password: "${DB_PASS}",
   database: "${DB}",
+  types: ComeBike.PostgresTypes,
   pool_size: 15
 
 config :sentry,
