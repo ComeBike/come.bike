@@ -67,8 +67,14 @@ defmodule ComeBike.Events.Ride do
   end
 
   defp put_lat_long(cs, params) do
+    # See if any of a the params changes the address
+    # keys will end up with anything that matches our list of attributes watched
+    keys = params |> Map.keys()
+    keys = keys -- keys -- [:start_zip, :start_city, :start_state, :start_address]
+
     case cs do
-      %{valid?: true} ->
+      %{valid?: true}
+      when keys != [] ->
         case GeoLookUp.get_lat_long(params) do
           {:ok, %{lat: lat, lng: lng}} ->
             cs
