@@ -36,6 +36,7 @@ environment :prod do
   set(include_erts: true)
   set(include_src: false)
   set(cookie: :"@%TVh1?rb5(Lj$qU~6/:d`/COuBg(VXsXlynuk5]C|WV>k/<QN]%7bg7VaU%UHNG")
+  set(name: :"come_bike@45.55.12.239")
 end
 
 # You may define one or more releases in this file.
