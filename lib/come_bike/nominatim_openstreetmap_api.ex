@@ -7,7 +7,7 @@ defmodule ComeBike.NominatimOpenstreetmapApi do
   def get_lat_lng(zip) do
     get(
       "search",
-      query: [postalcode: zip, format: "json"]
+      query: [postalcode: zip, format: "json", email: "joshc@digitalcak.es"]
     )
     |> parse_results
   end
@@ -15,7 +15,14 @@ defmodule ComeBike.NominatimOpenstreetmapApi do
   def get_lat_lng(street, city, state, zip) do
     get(
       "search",
-      query: [street: street, city: city, state: state, postalcode: zip, format: "json"]
+      query: [
+        street: street,
+        city: city,
+        state: state,
+        postalcode: zip,
+        email: "joshc@digitalcak.es",
+        format: "json"
+      ]
     )
     |> parse_results
   end
@@ -53,18 +60,19 @@ defmodule ComeBike.NominatimOpenstreetmapApi do
            | _t
          ]
        }) do
-    {:ok, %{
-      lat: lat,
-      lng: lng,
-      address: %{
-        country: address["country"],
-        country_code: address["country_code"],
-        state: address["state"],
-        state_code: address["state_code"],
-        city: address["city"],
-        zip: address["postcode"]
-      }
-    }}
+    {:ok,
+     %{
+       lat: lat,
+       lng: lng,
+       address: %{
+         country: address["country"],
+         country_code: address["country_code"],
+         state: address["state"],
+         state_code: address["state_code"],
+         city: address["city"],
+         zip: address["postcode"]
+       }
+     }}
   end
 
   defp parse_results(%Tesla.Env{status: 200, body: [%{"lat" => lat, "lon" => lng} | _t]}) do

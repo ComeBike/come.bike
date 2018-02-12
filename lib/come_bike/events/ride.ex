@@ -74,9 +74,10 @@ defmodule ComeBike.Events.Ride do
             cs
             |> put_change(:lat, lat)
             |> put_change(:lng, lng)
+            |> put_change(:geom, %Geo.Point{coordinates: {lat, lng}, srid: 4326})
 
-          {:error, _message} ->
-            # Raise Error
+          {:error, message} ->
+            raise ComeBike.Events.Ride, "put_lat_long failed to get_lat_long: #{message}"
             cs
         end
 
@@ -95,8 +96,8 @@ defmodule ComeBike.Events.Ride do
             |> put_change(:tz_offset, raw_offset)
             |> put_change(:tz_zone_id, time_zone_id)
 
-          {:error, _message} ->
-            # Raise Error
+          {:error, message} ->
+            raise ComeBike.Events.Ride, "put_timezone failed to get_timezone: #{message}"
             cs
         end
 
