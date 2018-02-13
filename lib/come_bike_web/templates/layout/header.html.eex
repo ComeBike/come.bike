@@ -13,6 +13,11 @@
             <li class="nav-item active">
               <%= link "Rides", to: ride_path(@conn, :index), class: "nav-link" %>
             </li>
+
+            <li class="nav-item active">
+              <%= link "Submit Ride", to: ride_path(@conn, :new), class: "nav-link" %>
+            </li>
+
           </ul>
 
           <ul class="navbar-nav ml-auto">
