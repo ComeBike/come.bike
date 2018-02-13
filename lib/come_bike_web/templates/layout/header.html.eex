@@ -28,9 +28,9 @@
               <i class="fas fa-lock"></i> Logout
               <% end %>
             </li>
-            <%# else %>
-            <!-- <li><a href="<%= user_path @conn, :new %>" class="nav-link">New user</a></li>
-            <li><a href="<%= session_path @conn, :new %>" class="nav-link">Login</a></li> -->
+            <% else %>
+            <li><a href="<%= user_path @conn, :new %>" class="nav-link">New user</a></li>
+            <li><a href="<%= session_path @conn, :new %>" class="nav-link">Login</a></li>
             <% end %>
           </ul>
 

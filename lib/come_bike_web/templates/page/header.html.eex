@@ -27,8 +27,8 @@
     <div class="row d-none d-lg-block ">
         <div class="col-md-12">
           <%= form_for @search_rides, "/rides/search", [method: :get, class: "form-inline justify-content-center pt-3 pb-3 mt-3 mb-3", as: "search_rides"], fn f -> %>
-            <label class="mb-2 mr-sm-2" for="inputPassword6">Find</label>
-            <%= select(f, :type, ["All Rides": "all_rides", "Races": "races", "CX": "cs",  "Group Rides": "group_rides", "Family Rides": "family_rides", "Party Rides": "party_rides", "Protest Rides": "protest_rides"], class: "form-control mb-2 mr-sm-2") %>
+            <label class="mb-2 mr-sm-2" for="inputPassword6">Find rides </label>
+            <%#= select(f, :type, ["All Rides": "all_rides", "Races": "races", "CX": "cs",  "Group Rides": "group_rides", "Family Rides": "family_rides", "Party Rides": "party_rides", "Protest Rides": "protest_rides"], class: "form-control mb-2 mr-sm-2") %>
 
             <label class="mb-2 mr-sm-2" for="inputPassword6">within</label>
 
@@ -45,18 +45,6 @@
       </div>
     </div>
 
-        <!-- <%= if @search_rides.errors && @search_rides.action == :searched do %>
-          <%= for {key, {message, [validation: :required]}} <- @search_rides.errors do %>
-            <div class="row justify-content-center">
-              <div class="col-md-3 text-center danager">
-                <div class="alert alert-danger" role="alert">
-                  <%= "#{key} #{message}" %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %> -->
-
       </div>
     </div>
   </div>
@@ -67,10 +55,10 @@
     <div class="col-md-12">
 
       <%= form_for @search_rides, "/rides/search", [method: :get, class: "form-inline justify-content-center pt-3 pb-3 mt-3 mb-3", as: "search_rides"], fn f -> %>
-        <label class="mb-2 mr-sm-2" for="inputPassword6">Find</label>
-        <%= select(f, :type, ["All Rides": "all_rides", "Races": "races", "CX": "cs",  "Group Rides": "group_rides", "Family Rides": "family_rides", "Party Rides": "party_rides", "Protest Rides": "protest_rides"], class: "form-control mb-2 mr-sm-2") %>
+      <label class="mb-2 mr-sm-2" for="inputPassword6">Find rides within</label>
+        <%#= select(f, :type, ["All Rides": "all_rides", "Races": "races", "CX": "cs",  "Group Rides": "group_rides", "Family Rides": "family_rides", "Party Rides": "party_rides", "Protest Rides": "protest_rides"], class: "form-control mb-2 mr-sm-2") %>
 
-        <label class="mb-2 mr-sm-2" for="inputPassword6">within</label>
+        <!-- <label class="mb-2 mr-sm-2" for="inputPassword6">within</label> -->
 
         <%= select(f, :miles, ["10 Miles": 10, "20 Miles": 20, "100 Miles": 100, "Any Distance": 0], class: "form-control mb-2 mr-sm-2") %>
 
